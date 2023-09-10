@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # UTF-8 encoding when using korean
-user_input = input()
+user_input = input("숫자입력")
 
 # 처음 돈, 거래횟수 분리
 inp = user_input.split(' ')
@@ -36,6 +36,7 @@ while count != 0:
 				res_list.append(M)
 		print(i)
 		count -= 1
+
 		
 	
 

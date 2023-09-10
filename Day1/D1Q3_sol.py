@@ -1,0 +1,4 @@
+# Sol
+
+A, B = input().split()
+print(max(eval(A), eval(B)))
