@@ -25,3 +25,6 @@ for i in range(len_S):
 		new_string += S.lower() # S가 대문자가 참이면 소문자 변환 후 new_string에 삽입
 		
 print(new_string)
+
+
+# 정답

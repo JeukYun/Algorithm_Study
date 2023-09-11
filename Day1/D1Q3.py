@@ -35,3 +35,6 @@ if eval(f1) > eval(f2):
 	print(eval(f1))
 else:
 	print(eval(f2))
+
+
+# 정답

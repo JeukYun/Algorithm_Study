@@ -25,3 +25,5 @@ while Word in Mess: # Mess에 Word가 포함 되어 있는 동안 아래를 계�
 	
 print(Mess)
 	
+
+# 정답
