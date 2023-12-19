@@ -28,17 +28,27 @@ https://www.acmicpc.net/problem/9012
 아니면 “NO”를 한 줄에 하나씩 차례대로 출력해야 한다. 
 '''
 
-def isVPS(VPS):
-    if VPS == 1:
-        A = 'YES'
-    else:
-        A = 'NO'
-    return A
+def isVPS(VPS): # 함수생성
+    VPS_list = [] # 빈 stack리스트 생성 
+    for i in VPS: # 괄호 하나씩 검사
+        if i == '(': 
+            VPS_list.append(i) # ( 인경우 stack에 추가
+        elif i == ')': # ) 인경우
+            if VPS_list: # stack리스트에 값이 있는경우
+                VPS_list.pop() # stack리스트 마지막 값 pop로 제거
+            else:
+                print("NO") # )만 들어간 경우엔 VPS가 아니므로 NO출력
+                break # 이후의 값은 들어와도 의미가 없으므로 break
+        else: # (, ) 모두 들어 온 경우(break문이 끊기지 않고 실행)
+            if VPS_list: # stack에 값이 남은 경우 NO출력
+                print('NO') 
+            else: # stack에 값이 없는 경우 YES출력
+                print('YES')
 
 import sys
-num = int(sys.stdin.readline())
+num = int(sys.stdin.readline()) # 횟수 입력
 
-for i in range(num):
-    VPS = sys.stdin.readline()
-    print(isVPS(VPS))
+for i in range(num): # 입력받은 횟수만큼 반복
+    VPS = sys.stdin.readline() # 괄호 입력
+    isVPS(VPS)
     
