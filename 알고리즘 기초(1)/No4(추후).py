@@ -21,3 +21,16 @@ https://www.acmicpc.net/problem/1874
 push연산은 +로, pop 연산은 -로 표현하도록 한다. 
 불가능한 경우 NO를 출력한다.
 '''
+
+import sys
+count = int(sys.stdin.readline())
+
+stack = []
+
+for i in range(count):
+    num = int(sys.stdin.readline())
+    for j in range(num):
+        if stack:
+            print("NO")
+        else:
+            stack.append(j)
