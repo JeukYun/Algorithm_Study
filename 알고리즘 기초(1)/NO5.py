@@ -49,15 +49,22 @@ str_lst = sys.stdin.readline().rstrip() # rstrip()를 사용하여 공백, 개�
 
 for i in str_lst:
     stack.append(i)
-# print(stack)
+print(stack)
 
 # 명령횟수 입력    
 count = int(sys.stdin.readline())
 
+
+L = 0 # 커서 왼쪽 이동(초기0)
+D = 0 # 커서 오른쪽 이동(초기0)
+
 for i in range(count):
     # 명령 횟수만큼 입력
     order = sys.stdin.readline()
-    x = order.split().pop()
 
-    if x == 'P':
-        stack.append()
+    if order == 'L':
+        L += 1
+    if order == 'D':
+        D += 1
+    if order == 'P':
+        if L == 0:
