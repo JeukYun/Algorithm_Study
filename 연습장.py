@@ -1,16 +1,25 @@
-# 0으로 채워진 (13, 13)행렬 생성
-adj = [[0]*13 for _ in range(13)]
-adj[0][1] = adj[0][7] = 1
-adj[1][2] = adj[1][5] = 1
-# ... 모든 간선 반복
+import sys
+input = sys.stdin.readline
 
-# 가독성 좋게 출력
-# for row in adj:
-#     print(row)
+n = int(input())
+a = input().split()
+b = input().split()
 
-def dfs(now): # now:시작노드
-    for nxt in range(13):
-        #시작노드 -> 다른 노드로 가는 간선(=1)이 있는경우
-        if adj[now][nxt]:
-            dfs(nxt) #재귀 호출
-            
+A = []
+for i in a:
+    A.append(int(i))
+
+B = []
+for i in b:
+    B.append(int(i))
+
+
+A.sort()
+B.sort()
+B = B[::-1]
+
+AB = []
+for a, b in zip(A, B):
+    AB.append(a * b)
+
+print(sum(AB))
