@@ -27,7 +27,7 @@ def bfs():
         for k in range(4):
             ny = y + dy[k]
             nx = x + dx[k]
-            if is_valid_coord(ny, nx) and board[ny][nx] == '1' and chk[ny][nx]:
+            if is_valid_coord(ny, nx) and board[ny][nx] == '1' and not chk[ny][nx]:
                 chk[ny][nx] = True
                 dq.append((ny, nx, nd))
         
