@@ -103,15 +103,22 @@ adj[0][1] = adj[0][7] = 1
 adj[1][2] = adj[1][5] = 1
 # ... 모든 간선 반복
 
+# 방문기록 체크 작성
+visited = [False] * 13
+
 # 가독성 좋게 출력
 for row in adj:
     print(row)
 
-def dfs(now): # now:시작노드
-    for nxt in range(13):
-        #시작노드 -> 다른 노드로 가는 간선(=1)이 있는경우
-        if adj[now][nxt]:
-            dfs(nxt) #재귀 호출
+# dfs(인접행렬, 시작노드, 방문기록)
+def dfs(adj, i, visited):
+    visited[i] = True # 방문한 곳 체크
+    print(i, end = ' ') # 방문순서 출력
+    for c in range(len(adj[i])):
+        # 간선이 있고, 방문한적이 없는 경우
+        if adj[i][c] == 1 and not visited[c]:
+            # 재귀함수 호출
+            dfs(adj, c, visited)
 ```
 
 ## BFS
@@ -134,15 +141,23 @@ adj[0][1] = adj[0][7] = 1
 adj[1][2] = adj[1][5] = 1
 # ... 모든 간선 반복
 
-def bfs():
+# 방문기록 체크 작성
+visited = [False] * 13
+
+# bfs(인접행렬, 시작노드, 방문기록)
+def bfs(adj, i, visited):
     dq = deque()
     #root노드 append
-    dq.append(0) 
+    dq.append(i) 
     while dq: # 비어있을때 까지 반복
-        now = dq.popleft() # 현재 노드 pop
-        for nxt in range(13):
-            if adj[now][nxt]: # 간선이 있는 경우
-                dq.append(nxt) # 다음노드 append
+        value = dq.popleft()
+        if not visited[value]:
+            print(value, end = ' ')
+            visited[value] = True
+        for c in range(len(adj[value])):
+            # 간선이 있고, 방문한적이 없는경우
+            if adj[value][c] == 1 and not visited[c]: 
+                dq.append(c) # 다음노드 append
 ```
 
 ## DFS & BFS 비교
